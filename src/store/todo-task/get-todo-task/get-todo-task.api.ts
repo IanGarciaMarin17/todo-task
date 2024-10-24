@@ -1,6 +1,6 @@
 import axios, { AxiosResponse } from 'axios';
 import { TodoTask } from './get-todo-task.entity';
-import {Encrypt} from "../../../utils/encrypt";
+import { Encrypt } from '../../../utils/encrypt';
 
 export const fetchGetTodoTaskApi = async (): Promise<TodoTask[]> => {
   const axiosADLInstance = axios.create({ baseURL: 'http://localhost:4000' });

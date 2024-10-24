@@ -9,6 +9,7 @@ export const fetchDeleteTodoTask = (id: number) => {
       const data = mapTodoTaskRespose(await fetchDeleteTodoTaskApi(id));
       dispatch(deleteTodoTaskActions.fetchDeleteTodoTaskSuccess(data));
     } catch (error: any) {
+      console.log('Error: ', error);
       dispatch(deleteTodoTaskActions.setError(error));
     }
   };
