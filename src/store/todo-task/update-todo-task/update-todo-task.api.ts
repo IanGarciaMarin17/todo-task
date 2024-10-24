@@ -1,4 +1,5 @@
 import axios, { AxiosResponse } from 'axios';
+import {Encrypt} from "../../../utils/encrypt";
 
 export const fetchUpdateTodoTaskCompleteApi = async (
   id: number
@@ -9,5 +10,5 @@ export const fetchUpdateTodoTaskCompleteApi = async (
       Record<string, never>,
       AxiosResponse<any>
     >(`/todo-tasks/tasks/complete/${id}`, {},{ headers: { 'x-authorization': 'bdb1234' } })
-    .then((response) => response.data);
+    .then((response) => Encrypt.decrypt(response.data));
 };

@@ -33,7 +33,6 @@ function AppContent(): JSX.Element {
   }, []);
 
   useEffect(() => {
-    console.log('Selector', createTodoTaskResponse);
     if (createTodoTaskResponse.error) {
       setShowAlert(true);
     }
