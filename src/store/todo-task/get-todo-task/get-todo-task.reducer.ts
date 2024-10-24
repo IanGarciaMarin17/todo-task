@@ -17,6 +17,9 @@ export const getTodoTaskState = createSlice({
         error: payload,
       };
     },
+    reset() {
+      return initialState;
+    },
   },
 });
 

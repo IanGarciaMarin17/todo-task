@@ -1,6 +1,6 @@
 import axios, { AxiosResponse } from 'axios';
 import { TodoTask } from '../get-todo-task/get-todo-task.entity';
-import {Encrypt} from "../../../utils/encrypt";
+import { Encrypt } from '../../../utils/encrypt';
 
 export const fetchCreateTodoTaskApi = async (
   todoTask: TodoTask
@@ -11,6 +11,6 @@ export const fetchCreateTodoTaskApi = async (
     .post<
       Record<string, never>,
       AxiosResponse<string>
-    >('/todo-tasks/tasks', {encryptedBody}, { headers: { 'x-authorization': 'bdb1234' } })
+    >('/todo-tasks/tasks', { encryptedBody }, { headers: { 'x-authorization': 'bdb1234' } })
     .then((response) => Encrypt.decrypt(response.data));
 };

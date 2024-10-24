@@ -7,12 +7,10 @@ import { AppDispatch } from '../../store';
 
 function CreateTodoButton() {
   const { setOpenModal, openModal } = React.useContext(TodoContext);
-  const dispatch: AppDispatch = useDispatch();
   return (
     <button
       className={styles['CreateTodoButton']}
       onClick={() => {
-        dispatch(createTodoTaskActions.reset());
         setOpenModal(true);
       }}
     >

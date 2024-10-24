@@ -17,6 +17,8 @@ import { AppDispatch } from '../../store';
 import styles from './AppContent.module.scss';
 import { createTodoTaskSelector } from '../../store/todo-task/create-todo-task/create-todo-task.select';
 import { Alert } from '../alert/Alert';
+import { updateTodoTaskSelector } from '../../store/todo-task/update-todo-task/update-todo-task.select';
+import { deleteTodoTaskSelector } from '../../store/todo-task/delete-todo-task/delete-todo-task.select';
 
 function AppContent(): JSX.Element {
   const { searchedTodos, openModal } = React.useContext(TodoContext);
@@ -27,16 +29,22 @@ function AppContent(): JSX.Element {
   const navigate = useNavigate();
 
   const createTodoTaskResponse = useSelector(createTodoTaskSelector);
+  const updateTodoTaskResponse = useSelector(updateTodoTaskSelector);
+  const deleteTodoTaskResponse = useSelector(deleteTodoTaskSelector);
 
   useEffect(() => {
     dispatch(fetchGetTodoTask());
   }, []);
 
   useEffect(() => {
-    if (createTodoTaskResponse.error) {
+    if (
+      createTodoTaskResponse.error ||
+      updateTodoTaskResponse.error ||
+      deleteTodoTaskResponse.error
+    ) {
       setShowAlert(true);
     }
-  }, [createTodoTaskResponse]);
+  }, [createTodoTaskResponse, updateTodoTaskResponse, deleteTodoTaskResponse]);
 
   const handleLogout = () => {
     navigate('/login');
@@ -46,7 +54,7 @@ function AppContent(): JSX.Element {
     <div className={styles.container}>
       {showAlert && (
         <Alert
-          message="Error al crear TODO, intenta más tarde..."
+          message="Ha ocurrido un error, intenta más tarde..."
           onClose={() => setShowAlert(false)}
         />
       )}
