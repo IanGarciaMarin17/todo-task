@@ -1,0 +1,19 @@
+.searchContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.searchIcon {
+  margin-right: 8px;
+  color: black;
+}
+
+.TodoSearch {
+  width: 300px;
+  padding: 8px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
