@@ -37,7 +37,6 @@ function AppContent(): JSX.Element {
   }, []);
 
   useEffect(() => {
-    console.log('deleteTodoTaskResponse', deleteTodoTaskResponse);
     if (
       createTodoTaskResponse.error ||
       updateTodoTaskResponse.error ||
