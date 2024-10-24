@@ -8,6 +8,6 @@ export const fetchUpdateTodoTaskCompleteApi = async (
     .put<
       Record<string, never>,
       AxiosResponse<any>
-    >(`/todo-tasks/tasks/complete/${id}`, { headers: { 'x-authorization': 'bdb1234' } })
+    >(`/todo-tasks/tasks/complete/${id}`, {},{ headers: { 'x-authorization': 'bdb1234' } })
     .then((response) => response.data);
 };
