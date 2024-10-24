@@ -7,7 +7,6 @@ export const fetchCreateTodoTaskApi = async (
 ): Promise<string> => {
   const axiosADLInstance = axios.create({ baseURL: 'http://localhost:4000' });
   const encryptedBody = Encrypt.encrypt(JSON.stringify(todoTask));
-  console.log('ENCRYPT', encryptedBody);
   return axiosADLInstance
     .post<
       Record<string, never>,
